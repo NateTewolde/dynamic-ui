@@ -1,0 +1,29 @@
+.menu {
+  background-color: lightblue;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.images {
+  display: flex;
+}
+
+.image-container {
+  width: 510px;
+  height: 340px;
+  overflow: hidden;
+}
+.image-slider-section {
+  display: flex;
+  align-items: center;
+}
+img {
+  flex-grow: 0;
+  width: 0px;
+}
+
+.current-img {
+  width: 520px;
+}

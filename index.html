@@ -5,13 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="./image-slider.js" defer></script>
+    <link rel="stylesheet" href="./style-drop-down.css" />
   </head>
   <body>
-    <ul class="menu">
-      <li class="options">Home</li>
-      <li class="options">Contact</li>
-      <li class="options">Hours</li>
-      <li class="options">About</li>
-    </ul>
+    <div class="menu-container">
+      <button class="menu-button">Menu</button>
+      <div class="menu">
+        <div class="options">Home</div>
+        <div class="options">Contact</div>
+        <div class="options">Hours</div>
+        <div class="options">About</div>
+      </div>
+    </div>
+    <div class="image-slider-section">
+      <button class="left-arrow">←</button>
+      <div class="image-container">
+        <div class="images">
+          <img
+            class="current-img"
+            data-img="0"
+            src="./images/avenue-815297__340.png"
+            alt="avenue"
+          />
+          <img data-img="1" src="./images/butterfly.png" alt="butterfly" />
+          <img
+            data-img="2"
+            src="./images/flowers-276014__340.jpg"
+            alt="flowers"
+          />
+          <img
+            data-img="3"
+            src="./images/mountain-landscape-2031539__340.jpg"
+            alt="mountain"
+          />
+          <img data-img="4" src="./images/tree-736885__340.png" alt="tree" />
+        </div>
+      </div>
+      <button class="right-arrow">→</button>
+    </div>
   </body>
 </html>
