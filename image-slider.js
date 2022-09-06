@@ -1,5 +1,5 @@
 formatArrows();
-// automatedSlider();
+automatedSlider();
 formatNavDots();
 function formatArrows() {
   let rightArrow = document.querySelector(".right-arrow");
@@ -9,14 +9,14 @@ function formatArrows() {
   leftArrow.addEventListener("click", moveToLeft);
 }
 
-// function automatedSlider() {
-//   let inverval_timer;
+function automatedSlider() {
+  let inverval_timer;
 
-//   //Time in milliseconds [1 second = 1000 milliseconds ]
-//   inverval_timer = setInterval(function () {
-//     moveToRight();
-//   }, 5000);
-// }
+  //Time in milliseconds [1 second = 1000 milliseconds ]
+  inverval_timer = setInterval(function () {
+    moveToRight();
+  }, 5000);
+}
 
 function moveToRight() {
   let currentImage = document.querySelector(".current-img");
