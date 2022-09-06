@@ -1,5 +1,6 @@
 formatArrows();
-
+// automatedSlider();
+formatNavDots();
 function formatArrows() {
   let rightArrow = document.querySelector(".right-arrow");
   rightArrow.addEventListener("click", moveToRight);
@@ -8,11 +9,24 @@ function formatArrows() {
   leftArrow.addEventListener("click", moveToLeft);
 }
 
+// function automatedSlider() {
+//   let inverval_timer;
+
+//   //Time in milliseconds [1 second = 1000 milliseconds ]
+//   inverval_timer = setInterval(function () {
+//     moveToRight();
+//   }, 5000);
+// }
+
 function moveToRight() {
-  currentImage = document.querySelector(".current-img");
-  currentImgId = currentImage.getAttribute("data-img-id").slice(-1);
+  let currentImage = document.querySelector(".current-img");
+  let currentImgId = currentImage.getAttribute("data-img-id").slice(-1);
+  let dotId = 0;
   if (currentImgId === "4") {
     currentImgId = "-1";
+    dotId += 0;
+  } else {
+    dotId += +currentImgId;
   }
   currentImage.classList.remove("current-img");
   nextImage = document.querySelector(
@@ -20,39 +34,58 @@ function moveToRight() {
   );
   nextImage.classList.add("current-img");
 
-  currentDot = document.querySelector("[data-dot-id=dot" + +currentImgId + "]");
+  let currentDot = document.querySelector(".current-dot");
   currentDot.classList.remove("current-dot");
-  nextDot = document.querySelector(
+  let nextDot = document.querySelector(
     "[data-dot-id=dot" + (+currentImgId + 1) + "]"
   );
   nextDot.classList.add("current-dot");
 }
 
 function moveToLeft() {
-  currentImage = document.querySelector(".current-img");
-  currentImgId = currentImage.getAttribute("data-img-id").slice(-1);
+  let currentImage = document.querySelector(".current-img");
+  let currentImgId = currentImage.getAttribute("data-img-id").slice(-1);
+  let dotId = 0;
   if (currentImgId === "0") {
     currentImgId = "5";
+    dotId += 4;
+  } else {
+    dotId += +currentImgId;
   }
   currentImage.classList.remove("current-img");
-  nextImage = document.querySelector(
+  let nextImage = document.querySelector(
     "[data-img-id=image" + (+currentImgId - 1) + "]"
   );
   nextImage.classList.add("current-img");
 
-  currentDot = document.querySelector("[data-dot-id=dot" + +currentImgId + "]");
+  let currentDot = document.querySelector(".current-dot");
   currentDot.classList.remove("current-dot");
-  nextDot = document.querySelector(
+  let nextDot = document.querySelector(
     "[data-dot-id=dot" + (+currentImgId - 1) + "]"
   );
   nextDot.classList.add("current-dot");
 }
 
-// const element = document.querySelector(".current-img");
+function formatNavDots() {
+  const navDots = document.querySelectorAll("[data-dot-id]");
+  navDots.forEach((navDot) => {
+    navDot.addEventListener("click", () => {
+      displayNavImage(navDots.length, navDot);
+    });
+  });
+}
 
-// const attrs = element.getAttributeNames().reduce((acc, name) => {
-//   return { ...acc, [name]: element.getAttribute(name) };
-// }, {});
+function displayNavImage(navDotsLength, navDotElement) {
+  let navDotId = navDotElement.getAttribute("data-dot-id").slice(-1);
 
-// // 👇️ {id: 'blue', 'data-id': 'example', class: 'box'}
-// console.log(attrs);
+  for (let i = 0; i < navDotsLength + 1; i++) {
+    moveToRight();
+    let currentImgId = document
+      .querySelector(".current-img")
+      .getAttribute("data-img-id")
+      .slice(-1);
+    if (currentImgId === navDotId) {
+      break;
+    }
+  }
+}
