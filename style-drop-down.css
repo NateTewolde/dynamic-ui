@@ -14,6 +14,7 @@
   width: 510px;
   height: 340px;
   overflow: hidden;
+  position: relative;
 }
 .image-slider-section {
   display: flex;
@@ -26,4 +27,14 @@ img {
 
 .current-img {
   width: 520px;
+}
+
+.navigation-dots ul {
+  display: flex;
+  list-style-type: circle;
+  column-gap: 8px;
+}
+
+.current-dot {
+  list-style: disc;
 }
